@@ -2,10 +2,11 @@
 
 use ArgentCrusade\Selectel\CloudStorage\CloudStorage;
 use ArgentCrusade\Selectel\CloudStorage\Exceptions\ApiRequestFailedException;
+use PHPUnit\Framework\TestCase;
 
-class ContainersTest extends PHPUnit_Framework_TestCase
+class ContainersTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
     }
@@ -503,7 +504,7 @@ class ContainersTest extends PHPUnit_Framework_TestCase
 
         $uploadedEtag = $container->uploadFromStream($path, $resource);
 
-        $this->assertInternalType('string', $uploadedEtag);
+        $this->assertIsString($uploadedEtag);
     }
 
     /** @test */
@@ -531,7 +532,7 @@ class ContainersTest extends PHPUnit_Framework_TestCase
 
         $uploadedEtag = $container->uploadFromStream($path, $resource, ['extract-archive' => 'tar']);
 
-        $this->assertInternalType('string', $uploadedEtag);
+        $this->assertIsString($uploadedEtag);
     }
 
     /** @test */

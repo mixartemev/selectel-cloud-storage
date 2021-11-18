@@ -1,8 +1,9 @@
 <?php
 
 use ArgentCrusade\Selectel\CloudStorage\FluentFilesLoader;
+use PHPUnit\Framework\TestCase;
 
-class FluentFilesLoaderTest extends PHPUnit_Framework_TestCase
+class FluentFilesLoaderTest extends TestCase
 {
     /** @test */
     function directory_loader()
@@ -137,7 +138,7 @@ class FluentFilesLoaderTest extends PHPUnit_Framework_TestCase
             ->get();
 
         foreach ($files as $file) {
-            $this->assertInternalType('string', $file->name());
+            $this->assertIsString($file->name());
         }
     }
 
